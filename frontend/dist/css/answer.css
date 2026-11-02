@@ -1,0 +1,104 @@
+.answer {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.answer-subtitle {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 20px;
+    line-height: 24px;
+    color: #DCDCF3;
+}
+.answer-subtitle span {
+    color: #6933DC;
+}
+.answer-title {
+    margin-top: 60px;
+}
+.answer-title span {
+    color: #6933DC;
+}
+.answer-test-user {
+    font-size: 20px;
+    line-height: 100%;
+    margin-top: 10px;
+}
+.answer-test-user span {
+    color: #6933DC;
+}
+.answer-answers {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+}
+.answer-question-title {
+    font-family: 'Museo Sans Cyrl Bold', sans-serif;
+    font-size: 36px;
+    line-height: 43px;
+}
+.answer-question-title span {
+    color: #6933DC;
+}
+.answer-variants {
+    margin-top: 40px;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.answer-variant {
+    display: flex;
+    font-size: 20px;
+    line-height: 24px;
+}
+.answer-variant.correct {
+    color: #5FDC33;
+}
+.answer-variant.incorrect {
+    color: #DC3333;
+}
+.answer-variant:before {
+    content: "";
+    border: 3px solid #6933DC;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    box-sizing: border-box;
+}
+.answer-variant.correct:before {
+    content: "";
+    border: 6px solid #5FDC33;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    box-sizing: border-box;
+}
+.answer-variant.incorrect:before {
+    content: "";
+    border: 6px solid #DC3333;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    box-sizing: border-box;
+}
+.answer-transition {
+    margin-top: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.answer-transition a {
+    font-size: 17px;
+    line-height: 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+.answer-transition a:hover {
+    text-decoration: underline;
+}
+.answer-transition a img {
+    margin-left: 13px;
+}
