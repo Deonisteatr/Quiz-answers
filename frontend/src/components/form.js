@@ -135,9 +135,9 @@ export class Form {
                             Auth.setTokens(loginResult.accessToken, loginResult.refreshToken);
                             location.href = '#/choice';
                             Auth.setUserInfo({
-                                fullName: loginResult.fullName,
-                                userId: loginResult.userId,
-                                email: loginResult.email,
+                                fullName: result.fullName,
+                                userId: result.userId,
+                                email: email,
                             })
                         }
                     }

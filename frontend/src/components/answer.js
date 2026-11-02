@@ -44,6 +44,7 @@ export class Answer {
                 }
 
                 this.testResult = result;
+                console.log(this.testResult);
                 this.showSubtitle();
                 this.showQuestion();
             }
@@ -84,7 +85,7 @@ export class Answer {
             // Заголовок вопроса
             const questionTitle = document.createElement('h3');
             questionTitle.className = 'answer-question-title';
-            questionTitle.innerHTML = `<span>Вопрос ${index.id}:</span> ${question.question}`;
+            questionTitle.innerHTML = `<span>Вопрос ${index + 1}:</span> ${question.question}`;
             questionArticle.appendChild(questionTitle);
 
             // Варианты ответов
@@ -99,11 +100,9 @@ export class Answer {
 
                 //Ищем ответы с флагами correct и задаем классы
                 if (answer.hasOwnProperty('correct')) {
-                    if (answer.correct === true) {
-                        variant.classList.add('correct');
-                    } else {
+                    answer.correct === true ?
+                        variant.classList.add('correct') :
                         variant.classList.add('incorrect');
-                    }
                 }
 
                 variantsContainer.appendChild(variant);
