@@ -108,37 +108,41 @@ export class Form {
 
             // Создаем соответствующие запросы для каждой из страниц
             if (this.page === 'signup') {
-
                 try {
-                    // Запрос для "signup"
                     const result = await CustomHttp.request(config.host + '/signup', 'POST', {
                         name: this.fields.find(item => item.name === 'name').element.value,
                         lastName: this.fields.find(item => item.name === 'lastName').element.value,
                         email: email,
                         password: password,
-                    })
+                    });
 
                     if (result) {
                         if (result.error || !result.user) {
                             throw new Error(result.message);
                         }
 
+                        // Сразу логинимся
                         const loginResult = await CustomHttp.request(config.host + '/login', 'POST', {
                             email: email,
                             password: password,
                         });
+
                         if (loginResult) {
                             if (loginResult.error || !loginResult.accessToken || !loginResult.refreshToken
-                            || !loginResult.fullName || !loginResult.userId) {
+                                || !loginResult.fullName || !loginResult.userId) {
                                 throw new Error(loginResult.message);
                             }
+
+                            // Сначала сохраняем данные
                             Auth.setTokens(loginResult.accessToken, loginResult.refreshToken);
-                            location.href = '#/choice';
                             Auth.setUserInfo({
-                                fullName: result.fullName,
-                                userId: result.userId,
+                                fullName: loginResult.fullName,
+                                userId: loginResult.userId,
                                 email: email,
-                            })
+                            });
+
+                            // Потом редирект
+                            location.href = '#/choice';
                         }
                     }
                 } catch (error) {
